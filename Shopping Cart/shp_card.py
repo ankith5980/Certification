@@ -1,60 +1,80 @@
-# Design a Shopping Cart System using Python lists.
-# Your program should:
-# 1. Create an empty shopping cart using a list.
-# 2. Provide a menu with the following options:
-# Add Item → Add a new item to the cart.
-# Remove Item → Remove an existing item from the cart.
-# Update Item → Replace an existing item with a new one.
-# View Cart → Display all items in the cart with their positions.
-# Search Item → Check if an item exists in the cart and display its position.
-# Slice Cart → Display a portion of the cart using start and end indexes.
-# Sort Cart → Arrange all items alphabetically.
-# Exit → Quit the program.
-# 3. Use all possible list operations such as append(), remove(), insert(), sort(), slice, index(), len(), etc.
+# Shopping Cart System using Python lists
 
-cart = [
+def main():
+    cart = []
+    while True:
+        print("\n--- Shopping Cart Menu ---")
+        print("1. Add Item")
+        print("2. Remove Item")
+        print("3. Update Item")
+        print("4. View Cart")
+        print("5. Search Item")
+        print("6. Slice Cart")
+        print("7. Sort Cart")
+        print("8. Exit")
+        choice = input("Enter your choice (1-8): ")
 
-]
+        if choice == '1':
+            item = input("Enter item to add: ")
+            cart.append(item)
+            print(f"Added '{item}' to cart.")
 
-# Add items to a list
-cart.append("Apple")
-cart.append("Orange")
-cart.append("Banana")
-print(cart)
+        elif choice == '2':
+            item = input("Enter item to remove: ")
+            if item in cart:
+                cart.remove(item)
+                print(f"Removed '{item}' from cart.")
+            else:
+                print(f"'{item}' not found in cart.")
 
-# Remove items from the list
-cart.remove("Orange")
-print(cart)
+        elif choice == '3':
+            old_item = input("Enter item to update: ")
+            if old_item in cart:
+                new_item = input("Enter new item: ")
+                idx = cart.index(old_item)
+                cart[idx] = new_item
+                print(f"Updated '{old_item}' to '{new_item}'.")
+            else:
+                print(f"'{old_item}' not found in cart.")
 
-# Update items in the list using index
-cart[1] = "Grapes"
-print(cart)
+        elif choice == '4':
+            if cart:
+                print("\nItems in Cart:")
+                for idx, item in enumerate(cart):
+                    print(f"Position {idx}: {item}")
+            else:
+                print("Cart is empty.")
 
-# view all the elements in the list using enumerate()
-for index, item in enumerate(cart):
-    print(f"Item {index}: {item}")
+        elif choice == '5':
+            item = input("Enter item to search: ")
+            if item in cart:
+                print(f"'{item}' found at position {cart.index(item)}.")
+            else:
+                print(f"'{item}' not found in cart.")
 
-# Search items using the index function and in operator
-item_to_search = "Grapes"
-if item_to_search in cart:
-    print(f"Found {item_to_search} at index {cart.index(item_to_search)}")
-else:
-    print(f"{item_to_search} not found in cart.")
+        elif choice == '6':
+            if cart:
+                start = input("Enter start index: ")
+                end = input("Enter end index: ")
+                try:
+                    start = int(start)
+                    end = int(end)
+                    print(f"Cart slice [{start}:{end}]: {cart[start:end]}")
+                except ValueError:
+                    print("Invalid index values.")
+            else:
+                print("Cart is empty.")
 
-# Slicing the list
-print(cart[1:3])
-print(cart[:2])
+        elif choice == '7':
+            cart.sort()
+            print("Cart sorted alphabetically.")
+            print(cart)
 
-# Sorting the elements in the list
-cart.sort()
-print("Sorted cart:", cart)
+        elif choice == '8':
+            print("Exiting Shopping Cart System.")
+            break
+        else:
+            print("Invalid choice. Please enter a number between 1 and 8.")
 
-# Check the length of the list
-print("Total items in cart:", len(cart))
-
-# Delete an item indirectly from the list by using remove
-cart.remove("Apple")
-print(cart)
-
-# Total number of items
-print("Total items in the cart after all operations:", len(cart))
+if __name__ == "__main__":
+    main()
