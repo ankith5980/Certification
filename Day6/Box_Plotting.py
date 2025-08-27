@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-data = np.random.normal(100, 20, 200)
+data = np.random.normal(100, 20, 100)
 plt.boxplot(data)
 plt.title("Box Plot")
 plt.show()
