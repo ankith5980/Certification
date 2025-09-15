@@ -44,6 +44,7 @@ log_reg.fit(X_train, y_train)
 
 y_pred = log_reg.predict(X_test)
 
+# Evaluation Metrics
 accuracy = accuracy_score(y_test, y_pred)
 print("Accuracy:", accuracy)
 
