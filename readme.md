@@ -13,4 +13,14 @@ Supervised Learning Algorithms ::
 
 Unsupervised Learning Algorithms ::
 
-    1.Deep Learning
+    1.Deep Learning - Analyzes : Basic Patterns (Layer_1) -> Simple features (Layer_2) -> Complex Shapes (Layer_3) -> Full Recognition (Layer_4)
+
+Introduction to CNN - Convolutional Neural Network
+    - Mainly involves image processing and understanding visual data
+
+Where is CNN Used??
+    - Handwritten Digit Recognition
+    - Face Detection
+    - Self-Driving Cars
+    - Medical Image Analysis
+    - Object Detection and Image recognization
